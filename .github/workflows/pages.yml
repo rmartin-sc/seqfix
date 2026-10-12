@@ -1,7 +1,7 @@
 name: Pages
 
 # Publishes README.md as the documentation site at
-# https://saultcollege.github.io/seqfix/
+# https://rmartin-sc.github.io/seqfix/
 # Requires Settings -> Pages -> Source: "GitHub Actions".
 
 on:

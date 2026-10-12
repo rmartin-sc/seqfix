@@ -1,7 +1,7 @@
 # seqfix
 
-[![CI](https://github.com/saultcollege/seqfix/actions/workflows/ci.yml/badge.svg)](https://github.com/saultcollege/seqfix/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/saultcollege/seqfix/blob/main/LICENSE)
+[![CI](https://github.com/rmartin-sc/seqfix/actions/workflows/ci.yml/badge.svg)](https://github.com/rmartin-sc/seqfix/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rmartin-sc/seqfix/blob/main/LICENSE)
 
 `seqfix` is a small command-line tool that normalizes numbered file and
 directory names, such as course materials, chapters or lessons, into a clean,
@@ -35,13 +35,13 @@ predictable step while keeping each name's descriptive part intact.
 
 Binaries for Linux (x86-64, ARM64), macOS (Intel, Apple silicon) and Windows
 (x86-64, ARM64) are attached to each release on the
-[Releases page](https://github.com/saultcollege/seqfix/releases), together
+[Releases page](https://github.com/rmartin-sc/seqfix/releases), together
 with a `SHA256SUMS` file. Download the archive for your platform, extract it
 and place `seqfix` (or `seqfix.exe`) somewhere on your `PATH`.
 
 ```sh
 # Example for Linux x86-64; substitute the version and target you need.
-curl -LO https://github.com/saultcollege/seqfix/releases/download/v0.1.0/seqfix-v0.1.0-x86_64-unknown-linux-musl.tar.gz
+curl -LO https://github.com/rmartin-sc/seqfix/releases/download/v0.1.0/seqfix-v0.1.0-x86_64-unknown-linux-musl.tar.gz
 tar xzf seqfix-v0.1.0-x86_64-unknown-linux-musl.tar.gz
 sudo install seqfix-v0.1.0-x86_64-unknown-linux-musl/seqfix /usr/local/bin/
 ```
@@ -53,13 +53,13 @@ If no release is listed yet, build from source as below.
 Requires Rust 1.85 or newer ([rustup.rs](https://rustup.rs)).
 
 ```sh
-cargo install --git https://github.com/saultcollege/seqfix
+cargo install --git https://github.com/rmartin-sc/seqfix
 ```
 
 Or from a local clone:
 
 ```sh
-git clone https://github.com/saultcollege/seqfix
+git clone https://github.com/rmartin-sc/seqfix
 cd seqfix
 cargo install --path .
 ```
@@ -302,17 +302,17 @@ Update `version` in `Cargo.toml` before tagging.
 
 ### Documentation site
 
-The site at <https://saultcollege.github.io/seqfix/> is generated from this
+The site at <https://rmartin-sc.github.io/seqfix/> is generated from this
 README by the Pages workflow whenever it changes on `main`. In the repository
 settings, set **Pages → Source** to **GitHub Actions**.
 
 ## Contributing
 
 Issues and pull requests are welcome at
-<https://github.com/saultcollege/seqfix>. Please run the formatting, lint and
+<https://github.com/rmartin-sc/seqfix>. Please run the formatting, lint and
 test commands above before submitting, and add tests for any behaviour change.
 
 ## License
 
-Released under the [MIT License](https://github.com/saultcollege/seqfix/blob/main/LICENSE).
-Copyright © 2026 Sault College.
+Released under the [MIT License](https://github.com/rmartin-sc/seqfix/blob/main/LICENSE).
+Copyright © 2026 Rodney Martin.
