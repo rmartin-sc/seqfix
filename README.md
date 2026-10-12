@@ -296,9 +296,29 @@ contains end-to-end tests that run the binary against temporary directories.
 
 ### Releases
 
-Pushing a tag such as `v0.1.0` runs the release workflow, which builds
-binaries for all supported platforms and attaches them to a GitHub release.
-Update `version` in `Cargo.toml` before tagging.
+Releases are made with [cargo-release](https://github.com/crate-ci/cargo-release)
+(`cargo install cargo-release`), configured in `release.toml`. From an
+up-to-date, clean `main` branch:
+
+```sh
+cargo release patch              # preview: shows what would happen, changes nothing
+cargo release patch --execute    # bump, commit, tag and push
+```
+
+Use `minor` or `major` instead of `patch` as appropriate, or give an exact
+version such as `cargo release 0.2.0 --execute`. For the very first release,
+when `Cargo.toml` already holds the version to publish, run
+`cargo release --execute` with no level to tag it without a bump.
+
+cargo-release refuses to run on any branch other than `main`, with
+uncommitted changes, or when the tag already exists. Before committing it
+runs `scripts/check.sh` (formatting, Clippy and tests, as in CI), even in
+preview mode. It then bumps `version` in `Cargo.toml` and `Cargo.lock`,
+commits, creates the tag `v<version>` and pushes both. The tag triggers the
+release workflow, which builds binaries for all supported platforms and
+attaches them to a GitHub release. The workflow refuses to build if the tag
+does not match the version in `Cargo.toml`. The crate is marked
+`publish = false`, so nothing is published to crates.io.
 
 ### Documentation site
 

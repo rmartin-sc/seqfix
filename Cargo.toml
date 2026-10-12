@@ -11,6 +11,7 @@ homepage = "https://rmartin-sc.github.io/seqfix/"
 readme = "README.md"
 keywords = ["rename", "filename", "sequence", "cli", "numbering"]
 categories = ["command-line-utilities", "filesystem"]
+publish = false
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }

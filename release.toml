@@ -1,0 +1,12 @@
+# Configuration for cargo-release (https://github.com/crate-ci/cargo-release).
+#
+#   cargo release patch            # preview the next patch release
+#   cargo release patch --execute  # bump, commit, tag v<version> and push
+#
+# Pushing the tag triggers .github/workflows/release.yml.
+
+allow-branch = ["main"]
+publish = false
+pre-release-commit-message = "Release v{{version}}"
+tag-message = "seqfix v{{version}}"
+pre-release-hook = ["scripts/check.sh"]

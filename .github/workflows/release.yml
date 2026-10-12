@@ -1,7 +1,7 @@
 name: Release
 
-# Builds binaries and publishes a GitHub release when a version tag is pushed:
-#   git tag v0.1.0 && git push origin v0.1.0
+# Builds binaries and publishes a GitHub release when a version tag is pushed.
+# Use `cargo release <level> --execute` (see release.toml) to bump, tag and push.
 
 on:
   push:
@@ -14,8 +14,21 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  check-version:
+    name: Check tag matches Cargo.toml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          version=$(sed -n 's/^version = "\(.*\)"$/\1/p' Cargo.toml | head -n 1)
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match Cargo.toml version $version"
+            exit 1
+          fi
+
   build:
     name: Build ${{ matrix.target }}
+    needs: check-version
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
