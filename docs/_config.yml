@@ -1,0 +1,3 @@
+title: seqfix
+description: Normalize numeric filename prefixes into a clean, gap-free sequence.
+theme: jekyll-theme-minimal
